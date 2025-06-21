@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"module": "commonjs",
+		"target": "es6",
+		"moduleResolution": "node",
+		"strict": true,
+		"noImplicitAny": true,
+		"paths": {
+			"@/*": ["./src/*"],
+			"@errors/*": ["src/errors/*"]
+		},
+		"esModuleInterop": true
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"],
+	"ts-node": {
+		"files": true
+	}
+}
