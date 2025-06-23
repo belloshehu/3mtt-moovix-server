@@ -80,6 +80,10 @@ To run the server in development mode with hot-reloading:
 npm run dev
 ```
 
+## Frontend repository
+
+Here is the url for the frontkend repository [here](https://github.com/belloshehu/3mtt-moovix-client)
+
 ## License
 
 This project is licensed under the MIT License.
