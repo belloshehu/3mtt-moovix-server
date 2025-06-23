@@ -23,9 +23,11 @@ const ListSchema = new Schema<IList, ListModelType>(
 			type: [String],
 			default: [],
 		},
-		userId: {
+		user: {
 			type: String,
 			default: null,
+			ref: "User", // Reference to User model if applicable
+			required: [true, "User ID is required"],
 		},
 		isPublic: {
 			type: Boolean,

@@ -55,6 +55,16 @@ const MovieSchema = new Schema<IMovie, MovieModelType>(
 			type: Number,
 			default: 0,
 		},
+		id: {
+			type: Number,
+			required: [true, "ID is required"],
+			unique: true, // Ensure that the ID is unique
+			index: true, // Create an index for faster queries
+		},
+		video: {
+			type: Boolean,
+			default: true,
+		},
 	},
 	{
 		timestamps: true,
