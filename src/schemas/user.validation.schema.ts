@@ -6,6 +6,12 @@ export const createUserValidationSchema = z.object({
 	password: z.string().min(6).max(255),
 	lastName: z.string().min(3).max(255),
 	firstName: z.string().min(3).max(255),
+	role: z.enum(["user", "admin", "partner"]).default("user"),
+	verified: z.boolean().default(false),
+	varificationToken: z.string().optional(),
+	varificationTokenExpiresBy: z.number().optional(),
+	following: z.array(z.string()).optional(),
+	followers: z.array(z.string()).optional(),
 });
 
 export type CreateUserDto = z.infer<typeof createUserValidationSchema>;

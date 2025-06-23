@@ -10,4 +10,6 @@ export interface IUser extends Document<any>, TimeStamps {
 	varificationToken?: string;
 	verificationTokenExpiresBy: number;
 	role: "admin" | "user" | "partner";
+	following?: IUser[] | string[];
+	followers?: IUser[] | string[];
 }
