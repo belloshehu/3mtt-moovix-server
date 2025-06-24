@@ -1,8 +1,11 @@
+import mongoose from "mongoose";
+
 export interface IList {
+	_id: string;
 	name: string;
 	description?: string;
 	type: "movie" | "tv";
-	items: string[]; // Array of movie or TV show IDs
+	items: mongoose.Schema.Types.ObjectId[] | []; // Array of movie or TV show IDs
 	createdAt?: Date;
 	updatedAt?: Date;
 	user?: string; // Optional, if the list is associated with a user

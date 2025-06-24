@@ -1,9 +1,9 @@
-import { IWatchlist } from "@/interfaces/watchlist.interface";
+import { IFavorite } from "@/interfaces/favorite.interface";
 import { model, Model, Schema } from "mongoose";
 
-type WatchlistModelType = Model<IWatchlist>;
+type FavoriteModelType = Model<IFavorite>;
 
-const WatchlistSchema = new Schema<IWatchlist, WatchlistModelType>(
+const FavoriteSchema = new Schema<IFavorite, FavoriteModelType>(
 	{
 		movies: {
 			type: [{ type: Schema.Types.ObjectId, ref: "Movie" }],
@@ -25,11 +25,11 @@ const WatchlistSchema = new Schema<IWatchlist, WatchlistModelType>(
 		timestamps: true, // Automatically adds createdAt and updatedAt fields
 	}
 );
-WatchlistSchema.index({ user: 1 }, { unique: true }); // Index for faster queries
+FavoriteSchema.index({ user: 1 }, { unique: true }); // Index for faster queries
 
-const WatchlistModel = model<IWatchlist, WatchlistModelType>(
-	"Watchlist",
-	WatchlistSchema
+const FavoriteModel = model<IFavorite, FavoriteModelType>(
+	"Favorite",
+	FavoriteSchema
 );
 
-export default WatchlistModel;
+export default FavoriteModel;

@@ -8,7 +8,7 @@ import { StatusCodes } from "http-status-codes";
 class MovieService {
 	private movieModel = MovieModel;
 
-	public createMovie = async (movieData: MovieDto): Promise<MovieDto> => {
+	public createMovie = async (movieData: MovieDto): Promise<IMovie> => {
 		const existingMovie = await this.movieModel.findOne({ id: movieData.id });
 		if (existingMovie) {
 			throw new HTTPException(StatusCodes.BAD_REQUEST, "Movie already exists");

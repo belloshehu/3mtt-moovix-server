@@ -32,7 +32,8 @@ const MovieSchema = new Schema<IMovie, MovieModelType>(
 			default: false,
 		},
 		genre_ids: {
-			type: [String],
+			type: [Number],
+			default: [], // Default to an empty array if no genres are provided
 			required: true,
 		},
 		original_language: {

@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-export interface IWatchlist {
+export interface IFavorite {
 	_id: string;
 	createdAt?: Date; // Optional creation date
 	updatedAt?: Date; // Optional last updated date

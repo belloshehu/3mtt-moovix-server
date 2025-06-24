@@ -3,7 +3,7 @@ import { Routes } from "@/interfaces/route.interface";
 import UserController from "@/controllers/user.controller";
 import authMiddleware from "@/middlewares/auth.middleware";
 
-class UserRoute implements Routes {
+class UserRoutes implements Routes {
 	public path = "/users";
 	public userController = new UserController();
 	public router = Router();
@@ -29,4 +29,4 @@ class UserRoute implements Routes {
 	}
 }
 
-export default UserRoute;
+export default UserRoutes;

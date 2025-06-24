@@ -2,7 +2,7 @@ import MovieController from "@/controllers/movies.controller";
 import { Routes } from "@/interfaces/route.interface";
 import { Router } from "express";
 
-class MovieRoute implements Routes {
+class MovieRoutes implements Routes {
 	path = "/movies";
 	router = Router();
 	private movieController = new MovieController();
@@ -24,4 +24,4 @@ class MovieRoute implements Routes {
 	}
 }
 
-export default MovieRoute;
+export default MovieRoutes;

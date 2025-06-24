@@ -1,41 +1,46 @@
-import WatchlistController from "@/controllers/watchlist.controller";
 import { Routes } from "@/interfaces/route.interface";
 import authMiddleware from "@/middlewares/auth.middleware";
 import validationMiddleware from "@/middlewares/validation.middleware";
 import { movieValidationSchema } from "@/schemas/movie.validation.schema";
-import { watchlistValidationSchema } from "@/schemas/watchlist.validation.schema";
+import { favoriteValidationSchema } from "@/schemas/favorite.validation.schema";
 import { Router } from "express";
+import FavoriteController from "@/controllers/favorite.controller";
 
-class WatchlistRoute implements Routes {
-	public path = "/watchlist";
+class FavoriteRoutes implements Routes {
+	public path = "/favorites";
 	public router = Router();
-	public watchlistController = new WatchlistController();
+	public favoriteController = new FavoriteController();
 
 	constructor() {
 		this.initializeRoutes();
 	}
 
 	public initializeRoutes() {
-		// Define your watchlist routes here
+		// Define your favorite routes here
 		this.router.post(
 			`${this.path}`,
-			[authMiddleware, validationMiddleware(watchlistValidationSchema, "body")],
-			this.watchlistController.createWatchlist
+			[authMiddleware, validationMiddleware(favoriteValidationSchema, "body")],
+			this.favoriteController.createFavorite
 		);
 		this.router.get(
 			`${this.path}`,
 			authMiddleware,
-			this.watchlistController.getWatchlistsByUserId
+			this.favoriteController.getFavoritesByUserId
 		);
 		this.router.post(
 			`${this.path}/add`,
 			[authMiddleware, validationMiddleware(movieValidationSchema, "body")],
-			this.watchlistController.addMovieToWatchlist
+			this.favoriteController.addMovieToFavorite
 		);
 		this.router.delete(
 			`${this.path}/remove/:movieId`,
 			authMiddleware,
-			this.watchlistController.removeMovieFromWatchlist
+			this.favoriteController.removeMovieFromFavorite
+		);
+		this.router.delete(
+			`${this.path}/clear`,
+			authMiddleware,
+			this.favoriteController.clearFavorite
 		);
 	}
 
@@ -44,4 +49,4 @@ class WatchlistRoute implements Routes {
 	}
 }
 
-export default WatchlistRoute;
+export default FavoriteRoutes;

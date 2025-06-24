@@ -1,5 +1,5 @@
 import { IList } from "@/interfaces/list.interface";
-import { model, Model, Schema } from "mongoose";
+import { model, Model, Schema, SchemaType } from "mongoose";
 
 type ListModelType = Model<IList, {}, {}>;
 const ListSchema = new Schema<IList, ListModelType>(
@@ -18,9 +18,10 @@ const ListSchema = new Schema<IList, ListModelType>(
 			type: String,
 			enum: ["movie", "tv"],
 			required: [true, "Type is required"],
+			default: "movie",
 		},
 		items: {
-			type: [String],
+			type: [{ type: Schema.Types.ObjectId, ref: "Movie" }], // Assuming items are references to Movie model
 			default: [],
 		},
 		user: {

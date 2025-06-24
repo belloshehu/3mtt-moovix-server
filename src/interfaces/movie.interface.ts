@@ -2,7 +2,7 @@ export interface IMovie {
 	_id: string;
 	adult: boolean; // Defaults to false
 	backdrop_path: string; // Defaults to empty string
-	genre_ids: number[]; // Array of integers
+	genre_ids?: number[]; // Array of integers
 	id: number; // Defaults to 0
 	original_language: string; // Defaults to empty string
 	original_title: string; // Defaults to empty string

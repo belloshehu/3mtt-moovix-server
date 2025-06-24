@@ -3,17 +3,19 @@ import App from "./app";
 import "dotenv/config";
 
 import IndexRoute from "./routes/index.route";
-import AuthRoute from "@/routes/auth.route";
-import UserRoute from "@/routes/user.route";
-import MovieRoute from "./routes/movie.route";
-import WatchlistRoute from "./routes/watchlist.route";
+import AuthRoutes from "@/routes/auth.route";
+import UserRoutes from "@/routes/user.route";
+import MovieRoutes from "./routes/movie.route";
+import FavoriteRoutes from "./routes/favorite.route";
+import ListRoutes from "./routes/list.route";
 
 const application = new App([
 	new IndexRoute(),
-	new AuthRoute(),
-	new UserRoute(),
-	new MovieRoute(),
-	new WatchlistRoute(),
+	new AuthRoutes(),
+	new UserRoutes(),
+	new MovieRoutes(),
+	new FavoriteRoutes(),
+	new ListRoutes(),
 ]);
 
 application.startServer();

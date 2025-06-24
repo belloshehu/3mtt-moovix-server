@@ -8,7 +8,7 @@ import {
 } from "../schemas/auth.validation.schema";
 import authMiddleware from "@/middlewares/auth.middleware";
 
-class AuthRoute implements Routes {
+class AuthRoutes implements Routes {
 	public path = "/auth";
 	public router = Router();
 	private authController = new AuthController();
@@ -36,4 +36,4 @@ class AuthRoute implements Routes {
 	}
 }
 
-export default AuthRoute;
+export default AuthRoutes;
